@@ -1,0 +1,245 @@
+# Decap CMS configuration — powers the point-and-click editor at /admin
+# Every field below maps 1:1 to content/homepage.json. Images upload to images/uploads/.
+
+backend:
+  name: github
+  repo: islantoned/acsta-site
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+site_url: "/"
+display_url: "/"
+logo_url: ""
+
+collections:
+  - name: "pages"
+    label: "Homepage"
+    files:
+      - name: "homepage"
+        label: "Homepage content"
+        file: "content/homepage.json"
+        format: "json"
+        editor: { preview: false }
+        fields:
+
+          - label: "Site & Header"
+            name: "site"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Association name", name: "name", widget: "string" }
+              - { label: "Short name (wordmark)", name: "short_name", widget: "string" }
+              - { label: "SEO title (browser tab)", name: "seo_title", widget: "string" }
+              - { label: "SEO description", name: "seo_description", widget: "text" }
+              - { label: "Logo image (leave empty to use text wordmark)", name: "logo_image", widget: "image", required: false, allow_multiple: false }
+              - label: "Navigation links"
+                name: "nav"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link", name: "href", widget: "string" }
+              - label: "Utility bar links (thin strip above header)"
+                name: "utility_links"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link", name: "href", widget: "string" }
+              - label: "Header button"
+                name: "nav_cta"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link", name: "href", widget: "string" }
+
+          - label: "Hero Carousel"
+            name: "hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow (small line above headline)", name: "eyebrow", widget: "string" }
+              - label: "Slides"
+                name: "slides"
+                widget: "list"
+                min: 1
+                max: 5
+                fields:
+                  - { label: "Slide label", name: "label", widget: "string" }
+                  - { label: "Headline", name: "headline", widget: "string" }
+                  - { label: "Body", name: "body", widget: "text" }
+                  - { label: "Button label", name: "cta_label", widget: "string" }
+                  - { label: "Button link", name: "cta_href", widget: "string" }
+                  - { label: "Image (optional)", name: "image", widget: "image", required: false, allow_multiple: false }
+                  - { label: "Image alt text", name: "image_alt", widget: "string", required: false }
+
+          - label: "Mission & Positioning"
+            name: "positioning"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Tagline", name: "tagline", widget: "string" }
+              - { label: "Mission statement", name: "statement", widget: "text" }
+              - { label: "Image", name: "image", widget: "image", required: false, allow_multiple: false }
+              - { label: "Image alt text", name: "image_alt", widget: "string", required: false }
+              - { label: "Audiences label", name: "audiences_label", widget: "string" }
+              - { label: "Audiences", name: "audiences", widget: "list" }
+
+          - label: "What You Get"
+            name: "what_you_get"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Intro", name: "intro", widget: "text" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Body", name: "body", widget: "text" }
+                  - { label: "Icon", name: "icon", widget: "select", options: ["shield", "clipboard", "chart", "people", "book", "badge", "store", "gavel"] }
+
+          - label: "Membership & Pricing"
+            name: "membership"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Intro", name: "intro", widget: "text" }
+              - label: "Tiers"
+                name: "tiers"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Price (e.g. $295)", name: "price", widget: "string" }
+                  - { label: "Period (e.g. per year)", name: "period", widget: "string" }
+                  - { label: "Tagline", name: "tagline", widget: "text" }
+                  - { label: "Features", name: "features", widget: "list" }
+                  - { label: "Button label", name: "cta_label", widget: "string" }
+                  - { label: "Button link", name: "cta_href", widget: "string" }
+                  - { label: "Highlight this tier", name: "featured", widget: "boolean", default: false }
+                  - { label: "Corner flag (e.g. For Teams)", name: "flag", widget: "string", required: false }
+              - { label: "Footnote", name: "footnote", widget: "string", required: false }
+
+          - label: "Member Resources Hub"
+            name: "resources"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Intro", name: "intro", widget: "text" }
+              - label: "Categories"
+                name: "categories"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Body", name: "body", widget: "text" }
+                  - { label: "Link", name: "href", widget: "string" }
+              - { label: "View all link label", name: "view_all_label", widget: "string" }
+              - { label: "View all link", name: "view_all_href", widget: "string" }
+
+          - label: "Estheticians / CE"
+            name: "estheticians"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+              - { label: "Bullet points", name: "points", widget: "list" }
+              - { label: "Button label", name: "cta_label", widget: "string" }
+              - { label: "Button link", name: "cta_href", widget: "string" }
+              - { label: "Compliance note", name: "note", widget: "text" }
+              - { label: "Image", name: "image", widget: "image", required: false, allow_multiple: false }
+              - { label: "Image alt text", name: "image_alt", widget: "string", required: false }
+
+          - label: "Blog"
+            name: "blog"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - label: "Posts"
+                name: "posts"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Excerpt", name: "excerpt", widget: "text" }
+                  - { label: "Category", name: "category", widget: "string" }
+                  - { label: "Link", name: "href", widget: "string" }
+                  - { label: "Image", name: "image", widget: "image", required: false, allow_multiple: false }
+                  - { label: "Image alt text", name: "image_alt", widget: "string", required: false }
+
+          - label: "Subscribe Form"
+            name: "subscribe"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+              - { label: "Name field label", name: "name_label", widget: "string" }
+              - { label: "Email field label", name: "email_label", widget: "string" }
+              - { label: "Role field label", name: "role_label", widget: "string" }
+              - { label: "Role options", name: "roles", widget: "list" }
+              - { label: "Button label", name: "button_label", widget: "string" }
+              - { label: "Success message", name: "success_message", widget: "string" }
+              - { label: "Error message", name: "error_message", widget: "string" }
+              - { label: "Google Apps Script Web App URL", name: "endpoint", widget: "string", hint: "Paste the URL from Deploy → Web app in Google Apps Script (see README)." }
+              - { label: "Privacy note", name: "privacy_note", widget: "string" }
+
+          - label: "Explore Resources links"
+            name: "explore"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - label: "Links"
+                name: "links"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link", name: "href", widget: "string" }
+
+          - label: "Affiliate Attorney"
+            name: "attorney"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+              - { label: "Image", name: "image", widget: "image", required: false, allow_multiple: false }
+              - { label: "Image alt text", name: "image_alt", widget: "string", required: false }
+
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Disclaimer", name: "disclaimer", widget: "string" }
+              - { label: "Tagline", name: "tagline", widget: "string" }
+              - label: "Link columns"
+                name: "columns"
+                widget: "list"
+                fields:
+                  - { label: "Column title", name: "title", widget: "string" }
+                  - label: "Links"
+                    name: "links"
+                    widget: "list"
+                    fields:
+                      - { label: "Label", name: "label", widget: "string" }
+                      - { label: "Link", name: "href", widget: "string" }
+              - label: "Legal links"
+                name: "legal_links"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link", name: "href", widget: "string" }
+              - { label: "Copyright name", name: "copyright_name", widget: "string" }
