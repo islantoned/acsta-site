@@ -1,0 +1,19 @@
+[build]
+  publish = "."
+
+# Security headers (HTTPS is automatic on Netlify)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# The admin must be able to load Decap + Netlify Identity
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Robots-Tag = "noindex"
