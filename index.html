@@ -1,1 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ACSTA | American Cosmetic Spray Tan Association: Standards, Certification & CE</title>
+  <meta name="description" content="ACSTA is the national professional association setting the educational standard for cosmetic spray tanning: certification, compliance education, SOPs, and business training for artists and salons.">
+  <meta name="theme-color" content="#1E3A6B">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ACSTA | American Cosmetic Spray Tan Association">
+  <meta property="og:description" content="The national standard for cosmetic spray tanning: certification, compliance education, SOPs, and business training.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
 
+  <div class="utility"><div class="wrap"><nav id="utility-links" aria-label="Utility"></nav></div></div>
+  <header class="header">
+    <div class="wrap">
+      <a class="brand" href="#top" id="brand" aria-label="ACSTA home"></a>
+      <nav class="nav" id="nav" aria-label="Primary"></nav>
+      <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" hidden></nav>
+  </header>
+
+  <main id="main">
+    <!-- 1. Hero carousel -->
+    <section class="hero" id="top" aria-roledescription="carousel" aria-label="Featured">
+      <div class="wrap">
+        <p class="eyebrow hero-eyebrow" id="hero-eyebrow"></p>
+        <div class="slides" id="slides" aria-live="polite"></div>
+        <div class="dots" id="dots" role="tablist" aria-label="Choose slide"></div>
+      </div>
+    </section>
+
+    <!-- 2. Positioning + mission -->
+    <section class="section mission" id="mission">
+      <div class="wrap">
+        <div>
+          <p class="eyebrow" id="mission-eyebrow"></p>
+          <h2 id="mission-tagline"></h2>
+        </div>
+        <div class="mission-body">
+          <p class="statement" id="mission-statement"></p>
+          <div class="img-slot" id="mission-image"></div>
+        </div>
+        <div class="audiences" id="audiences"></div>
+      </div>
+    </section>
+
+    <!-- 3. What you get -->
+    <section class="section" id="what-you-get">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow" id="wyg-eyebrow"></p>
+          <h2 id="wyg-headline"></h2>
+          <p class="lede" id="wyg-intro"></p>
+        </div>
+        <div class="grid grid-4" id="wyg-grid"></div>
+      </div>
+    </section>
+
+    <!-- 4. Membership / pricing -->
+    <section class="section membership" id="membership">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow" id="mem-eyebrow"></p>
+          <h2 id="mem-headline"></h2>
+          <p class="lede" id="mem-intro"></p>
+        </div>
+        <div class="tiers" id="tiers"></div>
+        <p class="footnote" id="mem-footnote"></p>
+      </div>
+    </section>
+
+    <!-- 5. Member resources hub -->
+    <section class="section" id="resources">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow" id="res-eyebrow"></p>
+          <h2 id="res-headline"></h2>
+          <p class="lede" id="res-intro"></p>
+        </div>
+        <div class="grid grid-3 res-grid" id="res-grid"></div>
+        <p class="view-all"><a id="res-view-all" href="#"></a></p>
+      </div>
+    </section>
+
+    <!-- 6. Estheticians / CE -->
+    <section class="section esth" id="estheticians">
+      <div class="wrap">
+        <div class="head" style="margin-bottom:0">
+          <p class="eyebrow" id="esth-eyebrow"></p>
+          <h2 id="esth-headline"></h2>
+          <p class="lede" id="esth-body"></p>
+          <p class="note" id="esth-note"></p>
+        </div>
+        <div class="esth-card">
+          <div class="img-slot img-slot-dark" id="esth-image"></div>
+          <ul id="esth-points"></ul>
+          <a class="btn btn-primary" id="esth-cta"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Blog -->
+    <section class="section" id="blog">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow" id="blog-eyebrow"></p>
+          <h2 id="blog-headline"></h2>
+        </div>
+        <div class="grid grid-3" id="blog-grid"></div>
+      </div>
+    </section>
+
+    <!-- 8. Subscribe -->
+    <section class="section subscribe" id="subscribe">
+      <div class="wrap">
+        <div class="head" style="margin-bottom:0">
+          <p class="eyebrow" id="sub-eyebrow"></p>
+          <h2 id="sub-headline"></h2>
+          <p class="lede" id="sub-body"></p>
+        </div>
+        <form class="form" id="subscribe-form" novalidate>
+          <div class="field">
+            <label for="sub-name" id="sub-name-label"></label>
+            <input id="sub-name" name="name" type="text" autocomplete="given-name" required>
+          </div>
+          <div class="field">
+            <label for="sub-email" id="sub-email-label"></label>
+            <input id="sub-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="sub-role" id="sub-role-label"></label>
+            <select id="sub-role" name="role"></select>
+          </div>
+          <!-- Spam protection: honeypot (bots fill it) + time trap (bots submit instantly) -->
+          <div class="hp" aria-hidden="true">
+            <label for="sub-website">Website</label>
+            <input id="sub-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <input type="hidden" name="ts" id="sub-ts">
+          <button class="btn btn-navy" type="submit" id="sub-btn"></button>
+          <p class="msg" id="sub-msg" role="status" aria-live="polite"></p>
+          <small id="sub-privacy"></small>
+        </form>
+      </div>
+    </section>
+
+    <!-- 9. Explore resources + affiliate attorney -->
+    <section class="section" id="explore">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow" id="explore-eyebrow"></p>
+        </div>
+        <nav class="explore-links" id="explore-links" aria-label="Explore resources"></nav>
+        <aside class="attorney" id="attorney">
+          <div class="img-slot" id="att-image"></div>
+          <div>
+            <p class="eyebrow" id="att-eyebrow"></p>
+            <h3 id="att-headline"></h3>
+            <p id="att-body"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- 10. Footer -->
+  <footer class="footer">
+    <div class="wrap">
+      <div>
+        <a class="brand" href="#top" id="footer-brand" aria-label="ACSTA home"></a>
+        <p class="disclaimer" id="footer-disclaimer"></p>
+        <p class="muted" id="footer-tagline" style="margin-top:8px"></p>
+      </div>
+      <div class="cols" id="footer-cols"></div>
+      <div class="legal">
+        <span id="footer-copy"></span>
+        <nav id="footer-legal" aria-label="Legal"></nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
